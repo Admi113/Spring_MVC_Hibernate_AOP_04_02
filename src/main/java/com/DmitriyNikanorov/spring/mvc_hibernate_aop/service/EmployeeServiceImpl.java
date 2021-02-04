@@ -9,7 +9,7 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService{
+public class EmployeeServiceImpl implements EmployeeService {
     @Autowired
     private EmployeeDAO employeeDao;
 
@@ -24,4 +24,17 @@ public class EmployeeServiceImpl implements EmployeeService{
     public void saveEmployee(Employee employee) {
         employeeDao.saveEmployee(employee);
     }
+
+    @Override
+    @Transactional
+    public Employee getEmployee(int id) {
+        return employeeDao.getEmployee(id);
+    }
+
+    @Override
+    @Transactional
+    public void deleteEmployee(int id) {
+        employeeDao.deleteEmployee(id);
+    }
+
 }
